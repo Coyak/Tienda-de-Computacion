@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Usuarios</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin">
+  <header class="admin-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Tienda Online</a>
+      <div class="rol-picker">
+        <label for="rol">Rol actual</label>
+        <select id="rol">
+          <option>Administrador</option>
+          <option>Vendedor</option>
+          <option>Cliente</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <div class="admin-layout container">
+    <aside class="admin-aside">
+      <nav aria-label="Menú admin">
+        <a href="home.html">Home</a>
+        <a href="productos.html">Productos</a>
+        <a href="usuarios.html" class="active">Usuarios</a>
+        <a href="usuarios-nuevo.html" data-role-admin-only>Nuevo Usuario</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <h1>Usuarios</h1>
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>RUN</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Tipo Usuario</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-usuarios"></tbody>
+      </table>
+    </main>
+  </div>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

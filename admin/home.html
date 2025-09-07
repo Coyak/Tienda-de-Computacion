@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Home</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin">
+  <header class="admin-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Tienda Online</a>
+      <div class="rol-picker">
+        <label for="rol">Rol actual</label>
+        <select id="rol">
+          <option>Administrador</option>
+          <option>Vendedor</option>
+          <option>Cliente</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <div class="admin-layout container">
+    <aside class="admin-aside">
+      <nav aria-label="Menú admin">
+        <a href="home.html">Home</a>
+        <a href="productos.html">Productos</a>
+        <a href="productos-nuevo.html">Nuevo Producto</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="usuarios-nuevo.html" data-role-admin-only>Nuevo Usuario</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <h1>Panel administrativo</h1>
+      <p>Bienvenido al panel. Usa el menú lateral para gestionar productos y usuarios.</p>
+      <section>
+        <h2>Resumen</h2>
+        <div class="resumen" id="admin-resumen"></div>
+      </section>
+    </main>
+  </div>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

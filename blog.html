@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Tienda Online</a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a class="active" href="blog.html">Blog</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html">Login</a>
+        <a href="registro.html">Registro</a>
+        <a href="admin/home.html">Admin</a>
+      </nav>
+      <a class="mini-cart" href="productos.html#carrito" id="mini-cart" aria-label="Carrito">Carrito (0)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Blog</h1>
+    <div class="grid blog-grid">
+      <article class="card">
+        <a class="img-wrap" href="blog-detalle-1.html">
+          <img src="img/blog1.jpg" alt="Consejos para comprar en línea">
+        </a>
+        <div class="card-body">
+          <h3>Consejos para comprar en línea</h3>
+          <p>Aprende a comparar precios y elegir productos de calidad.</p>
+          <a class="btn" href="blog-detalle-1.html">Leer más</a>
+        </div>
+      </article>
+      <article class="card">
+        <a class="img-wrap" href="blog-detalle-2.html">
+          <img src="img/blog2.jpg" alt="Tendencias en electrónica 2025">
+        </a>
+        <div class="card-body">
+          <h3>Tendencias en electrónica 2025</h3>
+          <p>Lo último en gadgets y accesorios inteligentes.</p>
+          <a class="btn" href="blog-detalle-2.html">Leer más</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="anio"></span> Tienda Online.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

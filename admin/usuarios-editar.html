@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Editar Usuario</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin">
+  <header class="admin-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Tienda Online</a>
+      <div class="rol-picker">
+        <label for="rol">Rol actual</label>
+        <select id="rol">
+          <option>Administrador</option>
+          <option>Vendedor</option>
+          <option>Cliente</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <div class="admin-layout container">
+    <aside class="admin-aside">
+      <nav aria-label="Menú admin">
+        <a href="home.html">Home</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="usuarios-nuevo.html" data-role-admin-only>Nuevo Usuario</a>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <h1>Editar Usuario</h1>
+      <form id="form-usuario" novalidate>
+        <input type="hidden" id="u-id" name="id">
+        <div class="grid-2">
+          <div class="form-field">
+            <label for="u-run">RUN (sin puntos ni guion)</label>
+            <input id="u-run" name="run" type="text" required minlength="7" maxlength="9">
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-nombre">Nombre</label>
+            <input id="u-nombre" name="nombre" type="text" maxlength="50" required>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-apellidos">Apellidos</label>
+            <input id="u-apellidos" name="apellidos" type="text" maxlength="100" required>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-correo">Correo</label>
+            <input id="u-correo" name="correo" type="email" maxlength="100" required>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-tipo">Tipo de usuario</label>
+            <select id="u-tipo" name="tipoUsuario" required>
+              <option value="">Seleccione…</option>
+              <option>Administrador</option>
+              <option>Cliente</option>
+              <option>Vendedor</option>
+            </select>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-region">Región</label>
+            <select id="u-region" name="region" required></select>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-comuna">Comuna</label>
+            <select id="u-comuna" name="comuna" required></select>
+            <div class="error" aria-live="polite"></div>
+          </div>
+          <div class="form-field">
+            <label for="u-direccion">Dirección</label>
+            <input id="u-direccion" name="direccion" type="text" maxlength="300" required>
+            <div class="error" aria-live="polite"></div>
+          </div>
+        </div>
+        <button class="btn" type="submit">Guardar</button>
+      </form>
+    </main>
+  </div>
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/validaciones.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

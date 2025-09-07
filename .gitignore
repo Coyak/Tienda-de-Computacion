@@ -1,0 +1,5 @@
+# Ignora archivos y carpetas de configuración de VS Code
+.vscode/
+
+# Ignora dependencias y archivos generados por Node.js
+node_modules/

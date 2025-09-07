@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Tienda Online - Productos destacados y ofertas.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Inicio">Tienda Online</a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="blog.html">Blog</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html">Login</a>
+        <a href="registro.html">Registro</a>
+        <a href="admin/home.html">Admin</a>
+      </nav>
+      <a class="mini-cart" href="productos.html#carrito" id="mini-cart" aria-label="Carrito">Carrito (0)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Bienvenido a la Tienda Online</h1>
+      <p>Encuentra los mejores productos al mejor precio.</p>
+    </section>
+
+    <section aria-labelledby="destacados-title">
+      <h2 id="destacados-title">Productos destacados</h2>
+      <div class="grid productos" id="destacados"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="anio"></span> Tienda Online. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/admin.js"></script>
+  
+</body>
+</html>

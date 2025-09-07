@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Tienda Online</a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="blog.html">Blog</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="active" href="login.html">Login</a>
+        <a href="registro.html">Registro</a>
+        <a href="admin/home.html">Admin</a>
+      </nav>
+      <a class="mini-cart" href="productos.html#carrito" id="mini-cart" aria-label="Carrito">Carrito (0)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Login</h1>
+    <form id="form-login" novalidate>
+      <div class="form-field">
+        <label for="l-correo">Correo</label>
+        <input id="l-correo" name="correo" type="email" maxlength="100" required>
+        <div class="error" aria-live="polite"></div>
+      </div>
+      <div class="form-field">
+        <label for="l-pass">Contraseña</label>
+        <input id="l-pass" name="password" type="password" minlength="4" maxlength="10" required>
+        <div class="error" aria-live="polite"></div>
+      </div>
+      <button class="btn" type="submit">Ingresar</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="anio"></span> Tienda Online.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/validaciones.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
