@@ -1,6 +1,9 @@
 # Tienda Online – Versión preliminar (Entrega 1 · DSY1104)
 
-Sitio web estático hecho con HTML5 + CSS externo + JavaScript vanilla. Cumple con navegación pública, render dinámico de productos, carrito persistente en `localStorage` y un panel administrativo simulado (CRUD en `localStorage`) con restricciones básicas por rol.
+Sitio web estático hecho con HTML5 + CSS externo + JavaScript vanilla. Cumple con navegación pública, render dinámico de productos de computación, carrito persistente en `localStorage` y un panel administrativo simulado (CRUD en `localStorage`) con restricciones básicas por rol.
+
+**Credenciales:** para acceder al panel administrador use `admin@tienda.com` / `admin123`.
+Los registros realizados en `registro.html` se guardan automáticamente como usuarios de tipo "Cliente".
 
 ## Cómo ejecutar
 - Opción sencilla: abre `index.html` con doble clic en tu navegador.
@@ -36,7 +39,7 @@ Sitio web estático hecho con HTML5 + CSS externo + JavaScript vanilla. Cumple c
   - Mini-cart en el header; sección de carrito en `productos.html`.
   - Reglas: cantidades ≥1, sin NaN, totales redondeados.
 - Validaciones (JS puro, mensajes en contexto)
-  - Login: correo (máx 100 y dominio permitido), contraseña (4–10).
+  - Login: requiere las credenciales del administrador (`admin@tienda.com` / `admin123`).
   - Contacto: nombre (req, máx 100), correo (máx 100 + dominio), comentario (req, máx 500).
   - Registro: nombre, correo (dominios permitidos), pass y confirmación.
   - Admin/Productos: código(min 3), nombre(≤100), desc(≤500), precio(≥0), stock(≥0 entero), stock crítico(opcional ≥0), categoría(select req). Aviso visual si `stock ≤ stockCritico`.
@@ -44,7 +47,7 @@ Sitio web estático hecho con HTML5 + CSS externo + JavaScript vanilla. Cumple c
   - Helpers implementados: `esCorreoValidoDominio`, `esLargoEntre`, `maxLongitud`, `esEnteroNoNegativo`, `esDecimalNoNegativo`, `validarRUT`, `anexarErrores`, `wireValidaciones`.
 - Admin simulado (sin backend)
   - `localStorage` claves: `productos`, `usuarios`, `tipoUsuario` (rol activo).
-  - Productos: listar/crear/editar/eliminar con persistencia en `localStorage`.
+  - Productos: listar/crear/editar/eliminar, re-stock rápido y creación rápida en `productos.html` con persistencia en `localStorage`.
   - Usuarios: listar/crear/editar/eliminar con persistencia en `localStorage`.
   - Roles: selector en header admin; si “Vendedor” oculta “Nuevo Usuario” y “Eliminar Usuario”. “Cliente” es solo visual (no debería usar admin).
 

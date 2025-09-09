@@ -32,6 +32,13 @@
     </aside>
     <main class="admin-main">
       <h1>Productos</h1>
+      <form id="form-producto-rapido" class="form-inline">
+        <input name="codigo" placeholder="Código" required>
+        <input name="nombre" placeholder="Nombre" required>
+        <input name="precio" type="number" min="0" placeholder="Precio" required>
+        <input name="stock" type="number" min="0" placeholder="Stock" required>
+        <button class="btn" type="submit">Agregar</button>
+      </form>
       <table class="tabla">
         <thead>
           <tr>

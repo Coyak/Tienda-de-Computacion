@@ -1,19 +1,41 @@
 // Datos semilla y catálogos
 // Categorías
-const CATEGORIAS = ["Accesorios", "Electrónica", "Hogar", "Ropa"];
+const CATEGORIAS = ["Componentes", "Periféricos", "Almacenamiento", "Computadores"];
 
 // Productos (id único)
 const PRODUCTOS_SEMILLA = [
-  { id: "p1", codigo: "A100", nombre: "Audífonos", descripcion: "Inalámbricos", precio: 19990, stock: 15, stockCritico: 3, categoria: "Electrónica", imagen: "img/audifonos.jpg" },
-  { id: "p2", codigo: "H200", nombre: "Hervidor", descripcion: "1.7L acero", precio: 24990, stock: 8, categoria: "Hogar", imagen: "img/hervidor.jpg" },
-  { id: "p3", codigo: "R300", nombre: "Polera básica", descripcion: "Algodón", precio: 9990, stock: 30, categoria: "Ropa", imagen: "img/polera.jpg" },
-  { id: "p4", codigo: "AC10", nombre: "Cable USB-C", descripcion: "1m", precio: 3990, stock: 50, categoria: "Accesorios", imagen: "img/cable.jpg" }
+  { id: "p1", codigo: "CPU01", nombre: "Procesador Ryzen 5", descripcion: "6 núcleos 3.9GHz", precio: 199990, stock: 10, categoria: "Componentes", imagen: "img/placeholder.png" },
+  { id: "p2", codigo: "SSD02", nombre: "SSD 1TB", descripcion: "NVMe", precio: 109990, stock: 15, categoria: "Almacenamiento", imagen: "img/placeholder.png" },
+  { id: "p3", codigo: "NB03", nombre: "Notebook Lenovo", descripcion: "14\" 8GB RAM", precio: 449990, stock: 7, categoria: "Computadores", imagen: "img/placeholder.png" },
+  { id: "p4", codigo: "MS04", nombre: "Mouse Gamer", descripcion: "RGB 16000 DPI", precio: 29990, stock: 25, categoria: "Periféricos", imagen: "img/placeholder.png" }
 ];
 
 // Usuarios (admin simulado)
 const USUARIOS_SEMILLA = [
-  { id: "u1", run: "19011022K", nombre: "Ana", apellidos: "Pérez Soto", correo: "ana@duoc.cl", tipoUsuario: "Administrador", region: "Los Lagos", comuna: "Puerto Montt", direccion: "Av. X 123" },
-  { id: "u2", run: "18222333K", nombre: "Luis", apellidos: "García Mora", correo: "luis@gmail.com", tipoUsuario: "Vendedor", region: "RM", comuna: "Santiago", direccion: "Calle Y 456" }
+  {
+    id: "u1",
+    run: "19011022K",
+    nombre: "Ana",
+    apellidos: "Pérez Soto",
+    correo: "admin@tienda.com",
+    password: "admin123",
+    tipoUsuario: "Administrador",
+    region: "Los Lagos",
+    comuna: "Puerto Montt",
+    direccion: "Av. X 123"
+  },
+  {
+    id: "u2",
+    run: "18222333K",
+    nombre: "Luis",
+    apellidos: "García Mora",
+    correo: "luis@gmail.com",
+    password: "vend123",
+    tipoUsuario: "Vendedor",
+    region: "RM",
+    comuna: "Santiago",
+    direccion: "Calle Y 456"
+  }
 ];
 
 // Regiones/Comunas

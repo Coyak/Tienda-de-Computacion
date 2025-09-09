@@ -127,19 +127,35 @@ window.wireValidaciones = wireValidaciones;
 window.reglasProducto = reglasProducto;
 window.reglasUsuario = reglasUsuario;
 
+// Semillas locales para usuarios
+function ensureUsuarios() {
+  if (!localStorage.getItem('usuarios')) {
+    localStorage.setItem('usuarios', JSON.stringify(USUARIOS_SEMILLA));
+  }
+}
+
 // Autowire validaciones para formularios públicos
 document.addEventListener('DOMContentLoaded', function(){
+  ensureUsuarios();
+
   // Login
   const fLogin = qs('#form-login');
   if (fLogin) {
     wireValidaciones(fLogin, {
-      correo: [v => maxLongitud(v, 100), v => esCorreoValidoDominio(v, DOMINIOS_PERMITIDOS) ? null : 'Dominio no permitido'],
+      correo: [v => maxLongitud(v, 100)],
       password: [v => esLargoEntre(v, 4, 10) ? null : 'Entre 4 y 10 caracteres']
     }, (data) => {
-      alert('Login simulado. Acceso concedido.');
-      if (data.correo.endsWith('@profesor.duoc.cl')) localStorage.setItem('tipoUsuario', 'Administrador');
-      else if (data.correo.endsWith('@duoc.cl')) localStorage.setItem('tipoUsuario', 'Vendedor');
-      else localStorage.setItem('tipoUsuario', 'Cliente');
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      const u = usuarios.find(x => x.correo === data.correo && x.password === data.password);
+      if (u && u.tipoUsuario === 'Administrador') {
+        localStorage.setItem('tipoUsuario', 'Administrador');
+        location.href = 'admin/home.html';
+      } else if (u) {
+        localStorage.setItem('tipoUsuario', u.tipoUsuario || 'Cliente');
+        alert('No tienes acceso al panel de administrador');
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
     });
   }
 
@@ -161,6 +177,12 @@ document.addEventListener('DOMContentLoaded', function(){
       correo: [v => maxLongitud(v, 100), v => esCorreoValidoDominio(v, DOMINIOS_PERMITIDOS) ? null : 'Dominio no permitido'],
       password: [v => esLargoEntre(v, 4, 10) ? null : 'Entre 4 y 10 caracteres'],
       password2: [v => v === qs('#r-pass').value ? null : 'Las contraseñas no coinciden']
-    }, () => alert('Registro simulado correcto. Puedes iniciar sesión.'));
+    }, (data) => {
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      const nuevo = { id: `u${Date.now()}`, nombre: data.nombre, correo: data.correo, password: data.password, tipoUsuario: 'Cliente' };
+      usuarios.push(nuevo);
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      alert('Registro simulado correcto. Puedes iniciar sesión.');
+    });
   }
 });

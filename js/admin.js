@@ -32,6 +32,11 @@ function aplicarRestriccionesRol() {
 
 function inicializarAdminUI() {
   ensureSeeds();
+  const rolActual = localStorage.getItem(KEY_ROL);
+  if (rolActual !== 'Administrador') {
+    location.href = '../login.html';
+    return;
+  }
   const select = qs('#rol');
   if (select) {
     select.addEventListener('change', () => { localStorage.setItem(KEY_ROL, select.value); location.reload(); });
@@ -52,10 +57,12 @@ function listarProductos() {
       <td>${p.categoria || ''}</td>
       <td>
         <a class="btn" href="productos-editar.html?id=${p.id}">Editar</a>
+        <button class="btn secundario" data-restock="${p.id}">Re-stock</button>
         <button class="btn secundario" data-eliminar="${p.id}">Eliminar</button>
       </td>
     </tr>`).join('');
   qsa('[data-eliminar]').forEach(b => b.addEventListener('click', () => eliminarProducto(b.dataset.eliminar)));
+  qsa('[data-restock]').forEach(b => b.addEventListener('click', () => restockProducto(b.dataset.restock)));
 }
 
 function crearProducto(data) {
@@ -66,6 +73,15 @@ function crearProducto(data) {
   setProductos(productos);
   alert('Producto creado');
   location.href = 'productos.html';
+}
+
+function crearProductoRapido(data) {
+  const productos = getProductos();
+  const id = `p${Date.now()}`;
+  const nuevo = { id, ...data, precio: Number(data.precio), stock: Number(data.stock) };
+  productos.push(nuevo);
+  setProductos(productos);
+  listarProductos();
 }
 
 function poblarCategorias(selector) {
@@ -94,6 +110,17 @@ function actualizarProducto(id, data) {
 function eliminarProducto(id) {
   if (!confirm('¿Eliminar producto?')) return;
   const productos = getProductos().filter(x => x.id !== id);
+  setProductos(productos);
+  listarProductos();
+}
+
+function restockProducto(id) {
+  const cant = parseInt(prompt('Cantidad a agregar'), 10);
+  if (isNaN(cant) || cant <= 0) return;
+  const productos = getProductos();
+  const idx = productos.findIndex(p => p.id === id);
+  if (idx < 0) return;
+  productos[idx].stock = (productos[idx].stock || 0) + cant;
   setProductos(productos);
   listarProductos();
 }
@@ -176,9 +203,11 @@ function poblarRegionesYComunas(selRegion, selComuna) {
 window.inicializarAdminUI = inicializarAdminUI;
 window.listarProductos = listarProductos;
 window.crearProducto = crearProducto;
+window.crearProductoRapido = crearProductoRapido;
 window.cargarProductoParaEdicion = cargarProductoParaEdicion;
 window.actualizarProducto = actualizarProducto;
 window.eliminarProducto = eliminarProducto;
+window.restockProducto = restockProducto;
 window.listarUsuarios = listarUsuarios;
 window.crearUsuario = crearUsuario;
 window.cargarUsuarioParaEdicion = cargarUsuarioParaEdicion;
@@ -196,6 +225,13 @@ document.addEventListener('DOMContentLoaded', function(){
   inicializarAdminUI();
   if (path.endsWith('/admin/productos.html')) {
     listarProductos();
+    const f = qs('#form-producto-rapido');
+    f?.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = formToObject(f);
+      crearProductoRapido(data);
+      f.reset();
+    });
   }
   if (path.endsWith('/admin/home.html')) {
     const res = qs('#admin-resumen');
