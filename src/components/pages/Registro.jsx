@@ -105,17 +105,30 @@ export default function Registro() {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="border p-4 shadow rounded" style={{ width: 400 }}>
-        <h3 className="mb-3 text-center">Crear Cuenta</h3>
-        
-        {errors.general && (
-          <div className="alert alert-danger" role="alert">
-            {errors.general}
+    <div className="container my-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-6 col-md-8">
+          {/* Header con estilo mejorado */}
+          <div className="text-center mb-5">
+            <div className="mb-4">
+              <i className="bi bi-person-plus text-primary" style={{ fontSize: '4rem' }}></i>
+            </div>
+            <h1 className="text-primary mb-3">Crear Cuenta</h1>
+            <p className="lead text-muted">
+              Únete a nuestra comunidad y disfruta de los mejores productos
+            </p>
           </div>
-        )}
 
-        <form onSubmit={handleSubmit}>
+          {/* Formulario de registro */}
+          <div className="card shadow-lg" style={{ backgroundColor: 'rgba(44, 44, 84, 0.9)', border: '1px solid rgba(77, 171, 247, 0.3)', borderRadius: '15px' }}>
+            <div className="card-body p-4">
+              {errors.general && (
+                <div className="alert alert-danger" role="alert" style={{ backgroundColor: 'rgba(220, 53, 69, 0.1)', borderColor: 'rgba(220, 53, 69, 0.3)', color: '#e9ecef' }}>
+                  {errors.general}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit}>
           <Input
             label="Nombre Completo"
             name="nombre"
@@ -159,28 +172,34 @@ export default function Registro() {
             placeholder="Repite tu contraseña"
           />
 
-          <Button
-            label={isSubmitting ? "Registrando..." : "Crear Cuenta"}
-            type="submit"
-            variant="primary"
-            disabled={isSubmitting}
-          />
-        </form>
+                <div className="text-center">
+                  <Button
+                    label={isSubmitting ? "Registrando..." : "Crear Cuenta"}
+                    type="submit"
+                    variant="primary"
+                    disabled={isSubmitting}
+                    style={{ borderRadius: '25px', padding: '0.75rem 2rem' }}
+                  />
+                </div>
+              </form>
 
-        <div className="text-center mt-3">
-          <p className="text-muted small">
-            ¿Ya tienes una cuenta?{' '}
-            <Link to="/login" className="text-decoration-none">
-              Inicia sesión aquí
-            </Link>
-          </p>
-        </div>
+              <div className="text-center mt-4">
+                <p className="text-muted small">
+                  ¿Ya tienes una cuenta?{' '}
+                  <Link to="/login" className="text-decoration-none" style={{ color: '#4dabf7' }}>
+                    Inicia sesión aquí
+                  </Link>
+                </p>
+              </div>
 
-        <div className="text-center mt-2">
-          <Link to="/" className="btn btn-outline-secondary btn-sm">
-            <i className="bi bi-arrow-left me-1"></i>
-            Volver al Inicio
-          </Link>
+              <div className="text-center mt-3">
+                <Link to="/" className="btn btn-outline-secondary btn-sm" style={{ borderRadius: '20px' }}>
+                  <i className="bi bi-arrow-left me-1"></i>
+                  Volver al Inicio
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

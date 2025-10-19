@@ -275,29 +275,45 @@ export default function ProductosAdmin() {
                       <tr key={producto.id}>
                         <td>{producto.id}</td>
                         <td>
-                          {producto.imagen ? (
-                            <img 
-                              src={producto.imagen} 
-                              alt={producto.nombre}
-                              className="img-thumbnail"
-                              style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                              onError={(e) => {
-                                e.target.style.display = 'none'
-                                e.target.nextSibling.style.display = 'block'
-                              }}
-                            />
-                          ) : null}
-                          <div 
-                            className="bg-light d-flex align-items-center justify-content-center"
-                            style={{ 
-                              width: '50px', 
-                              height: '50px', 
-                              display: producto.imagen ? 'none' : 'flex',
-                              fontSize: '12px',
-                              textAlign: 'center'
-                            }}
-                          >
-                            Sin imagen
+                          <div className="position-relative" style={{ width: '50px', height: '50px' }}>
+                            {producto.imagen ? (
+                              <img 
+                                src={producto.imagen} 
+                                alt={producto.nombre}
+                                className="img-thumbnail position-absolute top-0 start-0"
+                                style={{ 
+                                  width: '100%', 
+                                  height: '100%', 
+                                  objectFit: 'cover',
+                                  borderRadius: '4px',
+                                  zIndex: 1
+                                }}
+                                onError={(e) => {
+                                  // Si la imagen falla, ocultarla y mostrar placeholder
+                                  e.target.style.display = 'none'
+                                  const container = e.target.parentElement
+                                  const placeholder = container.querySelector('.placeholder-fallback')
+                                  if (placeholder) {
+                                    placeholder.style.display = 'flex'
+                                  }
+                                }}
+                              />
+                            ) : null}
+                            {!producto.imagen && (
+                              <div 
+                                className="d-flex align-items-center justify-content-center position-absolute top-0 start-0 w-100 h-100 placeholder-fallback"
+                                style={{ 
+                                  backgroundColor: 'rgba(64, 64, 122, 0.5)',
+                                  color: '#e9ecef',
+                                  fontSize: '10px',
+                                  borderRadius: '4px',
+                                  textAlign: 'center',
+                                  zIndex: 0
+                                }}
+                              >
+                                Sin imagen
+                              </div>
+                            )}
                           </div>
                         </td>
                         <td>{producto.nombre}</td>

@@ -3,9 +3,11 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Tema oscuro personalizado */
+  color-scheme: dark;
+  color: #e9ecef;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,22 +17,33 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #4dabf7;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #339af0;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  background-attachment: fixed;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #e9ecef;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #e9ecef;
+}
+
+p, span, div {
+  color: #e9ecef;
 }
 
 /* Estilos personalizados para botones - solo para elementos sin clase Bootstrap */
@@ -41,27 +54,211 @@ button:not(.btn) {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2c2c54;
+  color: #e9ecef;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:not(.btn):hover {
-  border-color: #646cff;
+  border-color: #4dabf7;
+  background-color: #40407a;
 }
 button:not(.btn):focus,
 button:not(.btn):focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button:not(.btn) {
-    background-color: #f9f9f9;
-  }
+/* Estilos para tarjetas en tema oscuro */
+.card {
+  background-color: rgba(44, 44, 84, 0.8);
+  border: 1px solid rgba(77, 171, 247, 0.2);
+  color: #e9ecef;
+  backdrop-filter: blur(10px);
+}
+
+.card-header {
+  background-color: rgba(64, 64, 122, 0.6);
+  border-bottom: 1px solid rgba(77, 171, 247, 0.2);
+  color: #e9ecef;
+}
+
+.card-body {
+  color: #e9ecef;
+}
+
+/* Estilos para formularios en tema oscuro */
+.form-control {
+  background-color: rgba(44, 44, 84, 0.8);
+  border: 1px solid rgba(77, 171, 247, 0.3);
+  color: #e9ecef;
+}
+
+.form-control::placeholder {
+  color: #adb5bd !important;
+  opacity: 1;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #adb5bd !important;
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder {
+  color: #adb5bd !important;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #adb5bd !important;
+  opacity: 1;
+}
+
+.form-control:focus {
+  background-color: rgba(44, 44, 84, 0.9);
+  border-color: #4dabf7;
+  color: #e9ecef;
+  box-shadow: 0 0 0 0.2rem rgba(77, 171, 247, 0.25);
+}
+
+.form-control:focus::placeholder {
+  color: #adb5bd !important;
+  opacity: 0.7;
+}
+
+.form-label {
+  color: #e9ecef;
+}
+
+/* Estilos para tablas en tema oscuro */
+.table {
+  color: #e9ecef;
+  background-color: transparent;
+}
+
+.table-dark {
+  background-color: rgba(44, 44, 84, 0.8);
+}
+
+/* Forzar estilos para tablas en admin - más específicos */
+.card .table thead th,
+.table thead th {
+  background-color: rgba(64, 64, 122, 0.8) !important;
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.2) !important;
+  font-weight: bold !important;
+}
+
+.card .table tbody tr,
+.table tbody tr {
+  background-color: rgba(44, 44, 84, 0.3) !important;
+  color: #e9ecef !important;
+}
+
+.card .table tbody tr:hover,
+.table tbody tr:hover {
+  background-color: rgba(44, 44, 84, 0.5) !important;
+}
+
+.card .table tbody td,
+.table tbody td {
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.1) !important;
+  background-color: transparent !important;
+}
+
+.card .table tbody th,
+.table tbody th {
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.1) !important;
+  background-color: transparent !important;
+}
+
+/* Estilos específicos para tablas en cards del admin */
+.card[style*="rgba(44, 44, 84, 0.8)"] .table thead th {
+  background-color: rgba(64, 64, 122, 0.8) !important;
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.2) !important;
+}
+
+.card[style*="rgba(44, 44, 84, 0.8)"] .table tbody tr {
+  background-color: rgba(44, 44, 84, 0.3) !important;
+  color: #e9ecef !important;
+}
+
+.card[style*="rgba(44, 44, 84, 0.8)"] .table tbody td {
+  color: #e9ecef !important;
+  background-color: transparent !important;
+}
+
+/* Clase específica para tablas del admin */
+.admin-table {
+  color: #e9ecef !important;
+}
+
+.admin-table thead th {
+  background-color: rgba(64, 64, 122, 0.8) !important;
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.2) !important;
+  font-weight: bold !important;
+}
+
+.admin-table tbody tr {
+  background-color: rgba(44, 44, 84, 0.3) !important;
+  color: #e9ecef !important;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(44, 44, 84, 0.5) !important;
+}
+
+.admin-table tbody td {
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.1) !important;
+  background-color: transparent !important;
+}
+
+.admin-table tbody th {
+  color: #e9ecef !important;
+  border-color: rgba(77, 171, 247, 0.1) !important;
+  background-color: transparent !important;
+}
+
+/* Estilos para alertas en tema oscuro */
+.alert-info {
+  background-color: rgba(77, 171, 247, 0.1);
+  border-color: rgba(77, 171, 247, 0.3);
+  color: #e9ecef;
+}
+
+.alert-success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-color: rgba(40, 167, 69, 0.3);
+  color: #e9ecef;
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-color: rgba(220, 53, 69, 0.3);
+  color: #e9ecef;
+}
+
+/* Estilos para badges en tema oscuro */
+.badge {
+  color: #e9ecef;
+}
+
+/* Estilos para texto muted en tema oscuro */
+.text-muted {
+  color: #adb5bd !important;
+}
+
+/* Estilos para listas en tema oscuro */
+.list-group-item {
+  background-color: rgba(44, 44, 84, 0.3) !important;
+  border: 1px solid rgba(77, 171, 247, 0.2) !important;
+  color: #e9ecef !important;
+}
+
+.list-group-item:hover {
+  background-color: rgba(44, 44, 84, 0.5) !important;
 }

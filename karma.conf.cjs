@@ -1,6 +1,6 @@
 module.exports = function(config) {
   config.set({
-    // Base path that will be used to resolve all patterns (eg. files, exclude)
+    // Base path that will be used to resolve all patterns
     basePath: '',
 
     // Frameworks to use
@@ -8,19 +8,19 @@ module.exports = function(config) {
 
     // List of files / patterns to load in the browser
     files: [
-      'src/test-setup.js',
-      'src/**/*.test.js',
-      'src/**/*.test.jsx'
+      // Tests puros de Jasmine
+      'src/tests-jasmine-puro/TestRenderizado.test.js',
+      'src/tests-jasmine-puro/TestProps.test.js',
+      'src/tests-jasmine-puro/TestEstado.test.js',
+      'src/tests-jasmine-puro/TestEventos.test.js'
     ],
 
     // List of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
     // Preprocess matching files before serving them to the browser
     preprocessors: {
-      'src/**/*.test.js': ['webpack', 'sourcemap'],
-      'src/**/*.test.jsx': ['webpack', 'sourcemap']
+      'src/tests-jasmine-puro/**/*.test.js': ['webpack', 'sourcemap']
     },
 
     // Webpack configuration
@@ -30,14 +30,13 @@ module.exports = function(config) {
       module: {
         rules: [
           {
-            test: /\.(js|jsx)$/,
+            test: /\.js$/,
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
               options: {
                 presets: [
-                  ['@babel/preset-env', { targets: { node: 'current' } }],
-                  ['@babel/preset-react', { runtime: 'automatic' }]
+                  ['@babel/preset-env', { targets: { node: 'current' } }]
                 ]
               }
             }
@@ -45,7 +44,7 @@ module.exports = function(config) {
         ]
       },
       resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js']
       }
     },
 
@@ -56,29 +55,26 @@ module.exports = function(config) {
     coverageIstanbulReporter: {
       reports: ['html', 'text-summary', 'lcov'],
       dir: 'coverage',
-      fixWebpackSourcePaths: true,
-      'report-config': {
-        html: { outDir: 'html' }
-      }
+      fixWebpackSourcePaths: true
     },
 
     // Web server port
     port: 9876,
 
-    // Enable / disable colors in the output (reporters and logs)
+    // Enable / disable colors in the output
     colors: true,
 
     // Level of logging
     logLevel: config.LOG_INFO,
 
     // Enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
     // Start these browsers
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
     // Continuous Integration mode
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     concurrency: Infinity,

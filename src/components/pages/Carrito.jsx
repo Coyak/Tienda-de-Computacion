@@ -106,7 +106,13 @@ export default function Carrito() {
                                   src={item.imagen}
                                   alt={item.nombre}
                                   className="img-fluid"
-                                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                  style={{ 
+                                    objectFit: 'contain', 
+                                    width: '100%', 
+                                    height: '100%',
+                                    backgroundColor: 'rgba(64, 64, 122, 0.3)',
+                                    padding: '5px'
+                                  }}
                                   onError={(e) => {
                                     e.target.style.display = 'none'
                                     e.target.nextSibling.style.display = 'flex'

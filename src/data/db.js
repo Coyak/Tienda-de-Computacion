@@ -1,10 +1,35 @@
+// Importar las imágenes
+import laptopImg from '../assets/products/laptop-lenovo.jpg'
+import mouseImg from '../assets/products/mouse-logitech.jpg'
+import monitorImg from '../assets/products/monitor-samsung.jpg'
+import tecladoImg from '../assets/products/teclado-mecanico.jpg'
+import auricularesImg from '../assets/products/auriculares-gaming.jpg'
+
+// Función para obtener la URL de la imagen
+const getImageUrl = (imageImport) => {
+  // Si es un string, devolverlo tal como está
+  if (typeof imageImport === 'string') {
+    return imageImport
+  }
+  // Si es un objeto de importación, extraer la URL
+  if (imageImport && imageImport.default) {
+    return imageImport.default
+  }
+  // Si es un objeto con src, usar src
+  if (imageImport && imageImport.src) {
+    return imageImport.src
+  }
+  // Fallback
+  return imageImport
+}
+
 // Datos iniciales
 const productosIniciales = [
-  { id: 1, nombre: "Laptop Lenovo", precio: 599000, stock: 10, categoria: "Notebooks", imagen: "/img/laptop.jpg", descuento: 0 },
-  { id: 2, nombre: "Mouse Logitech", precio: 19990, stock: 30, categoria: "Periféricos", imagen: "/img/mouse.jpg", descuento: 0 },
-  { id: 3, nombre: "Monitor Samsung", precio: 139990, stock: 12, categoria: "Monitores", imagen: "/img/monitor.jpg", descuento: 0 },
-  { id: 4, nombre: "Teclado Mecánico", precio: 89990, stock: 15, categoria: "Periféricos", imagen: "/img/teclado.jpg", descuento: 10 },
-  { id: 5, nombre: "Auriculares Gaming", precio: 129990, stock: 8, categoria: "Audio", imagen: "/img/auriculares.jpg", descuento: 15 },
+  { id: 1, nombre: "Laptop Lenovo", precio: 599000, stock: 10, categoria: "Notebooks", imagen: getImageUrl(laptopImg), descuento: 0 },
+  { id: 2, nombre: "Mouse Logitech", precio: 19990, stock: 30, categoria: "Periféricos", imagen: getImageUrl(mouseImg), descuento: 0 },
+  { id: 3, nombre: "Monitor Samsung", precio: 139990, stock: 12, categoria: "Monitores", imagen: getImageUrl(monitorImg), descuento: 0 },
+  { id: 4, nombre: "Teclado Mecánico", precio: 89990, stock: 15, categoria: "Periféricos", imagen: getImageUrl(tecladoImg), descuento: 10 },
+  { id: 5, nombre: "Auriculares Gaming", precio: 129990, stock: 8, categoria: "Audio", imagen: getImageUrl(auricularesImg), descuento: 15 },
 ]
 
 const usuariosIniciales = [

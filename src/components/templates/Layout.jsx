@@ -7,8 +7,15 @@ export default function Layout({ children }) {
       <main className="container-fluid flex-grow-1 py-4">
         {children}
       </main>
-      <footer className="text-center p-4 bg-light mt-auto">
-        <small>© 2025 Tienda de Computación</small>
+      <footer 
+        className="text-center p-4 mt-auto"
+        style={{ 
+          backgroundColor: 'rgba(44, 44, 84, 0.95)', 
+          borderTop: '1px solid rgba(77, 171, 247, 0.3)',
+          color: '#e9ecef'
+        }}
+      >
+        <small style={{ color: '#adb5bd' }}>© 2025 Tienda de Computación</small>
       </footer>
     </div>
   )
