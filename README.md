@@ -213,9 +213,6 @@ npm run test:coverage
 
 ### **Documentos Incluidos**
 - **README.md**: Este archivo con documentación completa del proyecto
-- **docs/ERS_V2.md**: Especificación completa de Requerimientos del Sistema (487 líneas)
-- **docs/TESTING_PRESENTACION.md**: Guía de presentación de tests para evaluación (237 líneas)
-- **docs/COBERTURA_TESTING.md**: Documentación detallada de cobertura de testing (294 líneas)
 - **karma.conf.cjs**: Configuración optimizada de testing con Jasmine
 - **vite.config.js**: Configuración de build y desarrollo
 
@@ -296,82 +293,11 @@ Usuario Demo:
 4. **Build**: `npm run build` para producción
 5. **Preview**: `npm run preview` para verificar build
 
-## 📚 Documentación del Proyecto
-
-### **📁 Carpeta `docs/` - Documentación Técnica Completa**
-
-La carpeta `docs/` contiene toda la documentación técnica detallada del proyecto:
-
-#### **📄 `ERS_V2.md` - Especificación de Requerimientos del Sistema**
-- **Propósito**: Documento principal que define todos los requerimientos funcionales y no funcionales del sistema
-- **Contenido**:
-  - **Introducción y Alcance**: Propósito del sistema, tecnologías utilizadas
-  - **Requerimientos Funcionales**: 15+ RFs detallados con criterios de aceptación
-    - RF01-RF05: Gestión de Productos (visualización, filtrado, búsqueda, detalles, categorías)
-    - RF06-RF10: Sistema de Autenticación (registro, login, logout, validaciones, roles)
-    - RF11-RF15: Carrito y Checkout (agregar productos, gestión, checkout, pagos, confirmación)
-  - **Requerimientos No Funcionales**: Performance, seguridad, usabilidad, compatibilidad
-  - **Arquitectura del Sistema**: Estructura de componentes, flujo de datos, tecnologías
-  - **Casos de Uso**: Diagramas y descripciones detalladas
-- **Páginas**: 487 líneas de documentación técnica completa
-- **Uso**: Referencia principal para entender la funcionalidad del sistema
-
-#### **📄 `TESTING_PRESENTACION.md` - Guía de Presentación de Tests**
-- **Propósito**: Guía completa para presentar los tests implementados durante la evaluación
-- **Contenido**:
-  - **Resumen de Tests**: 5 tests específicos que cumplen los requisitos del docente
-  - **Tests Implementados**:
-    - ✅ **Renderizado Correcto**: Verificación de listas que renderizan todos los elementos
-    - ✅ **Renderizado Condicional**: Mensajes de error que aparecen solo cuando hay error
-    - ✅ **Propiedades Recibidas**: Botones que reciben correctamente label y onClick
-    - ✅ **Gestión del Estado**: Formularios que cambian estado al escribir texto
-    - ✅ **Simulación de Eventos**: Clics que cambian estado o ejecutan funciones
-  - **Comandos de Ejecución**: `npm test` y `npm run test:coverage`
-  - **Script de Presentación**: Guía paso a paso para la evaluación
-  - **Conceptos Técnicos**: Explicación de Jasmine, React Testing Library, assertions
-  - **Checklist de Cumplimiento**: Verificación de todos los requisitos
-- **Páginas**: 237 líneas de guía práctica
-- **Uso**: Preparación para la presentación y evaluación de tests
-
-#### **📄 `COBERTURA_TESTING.md` - Documento de Cobertura de Testing**
-- **Propósito**: Documentación detallada de la estrategia de testing y cobertura del código
-- **Contenido**:
-  - **Resumen Ejecutivo**: 50+ pruebas unitarias implementadas
-  - **Configuración del Entorno**: Jasmine, Karma, React Testing Library, Babel, Webpack
-  - **Cobertura por Componentes**:
-    - **Componentes Atómicos**: Input, Button, Label, Badge, Card (100% cobertura)
-    - **Componentes Moleculares**: ProductCard con todas sus funcionalidades
-    - **Componentes Organizacionales**: ProductGrid, Navbar
-    - **Páginas**: Registro, Login, Carrito, Checkout
-    - **Contextos**: AuthContext, CartContext (gestión de estado global)
-    - **Utilidades**: Validaciones, formatters, storage
-    - **Base de Datos**: Operaciones CRUD mock
-  - **Métricas de Cobertura**: Estadísticas detalladas por módulo
-  - **Estrategia de Testing**: Unitarios, integración, mocks, spies
-  - **Configuración Técnica**: Karma, Webpack, Babel setup
-- **Páginas**: 294 líneas de documentación técnica
-- **Uso**: Referencia para entender la cobertura y calidad del código
-
-### **📊 Resumen de Documentación**
-
-| **Documento** | **Líneas** | **Propósito** | **Audiencia** |
-|---------------|------------|---------------|---------------|
-| `ERS_V2.md` | 487 | Requerimientos del sistema | Desarrolladores, evaluadores |
-| `TESTING_PRESENTACION.md` | 237 | Guía de presentación | Estudiante, evaluador |
-| `COBERTURA_TESTING.md` | 294 | Estrategia de testing | Desarrolladores, QA |
-| **Total** | **1,018 líneas** | **Documentación completa** | **Equipo de desarrollo** |
-
-### **🎯 Objetivos de la Documentación**
-
-1. **📋 ERS_V2.md**: Definir claramente qué hace el sistema y cómo debe funcionar
-2. **🎤 TESTING_PRESENTACION.md**: Facilitar la presentación exitosa durante la evaluación
-3. **🔍 COBERTURA_TESTING.md**: Demostrar la calidad y robustez del código implementado
 
 ## 📝 Notas de Entrega
 
 ### **Archivos de Entrega**
 - Código fuente completo en `src/`
-- **Documentación técnica completa en `docs/` (1,018 líneas)**
 - Configuración de testing en `karma.conf.cjs`
 - Configuración de build en `vite.config.js`
 - README completo con instrucciones

@@ -24,9 +24,13 @@ out/
 .vscode/
 .idea/
 .cursor/
+.cursor/plans
 *.swp
 *.swo
 *~
+
+# Documentation (excluded from delivery)
+docs/
 
 # OS generated files
 .DS_Store
