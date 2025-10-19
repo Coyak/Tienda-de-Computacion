@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getUsuarioByEmail, addUsuario } from '../data/db.js'
 
 export const AuthContext = createContext()
 
@@ -17,13 +18,36 @@ export function AuthProvider({ children }) {
   }, [user])
 
   const login = (email, password) => {
-    if (email === 'admin@tienda.com' && password === 'admin123') {
-      const adminUser = { email, role: 'admin' }
-      setUser(adminUser)
-      navigate('/admin')
+    const usuario = getUsuarioByEmail(email)
+    
+    if (usuario && usuario.password === password) {
+      // No guardar la contraseña en el estado del usuario
+      const { password: _, ...userData } = usuario
+      setUser(userData)
+      if (userData.role === 'admin') {
+        navigate('/admin')
+      } else {
+        navigate('/')
+      }
+      return true
     } else {
       alert('Credenciales inválidas')
+      return false
     }
+  }
+
+  const register = (userData) => {
+    const result = addUsuario(userData)
+    
+    if (result.success) {
+      // No guardar la contraseña en el estado del usuario
+      const { password: _, ...userWithoutPassword } = result.usuario
+      setUser(userWithoutPassword)
+      navigate('/login')
+      return { success: true, user: userWithoutPassword }
+    }
+    
+    return { success: false, error: result.error }
   }
 
   const logout = () => {
@@ -31,8 +55,19 @@ export function AuthProvider({ children }) {
     navigate('/login')
   }
 
+  const isAuthenticated = () => !!user
+
+  const isAdmin = () => user?.role === 'admin'
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ 
+      user, 
+      login, 
+      register,
+      logout, 
+      isAuthenticated,
+      isAdmin 
+    }}>
       {children}
     </AuthContext.Provider>
   )

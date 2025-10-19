@@ -13,6 +13,7 @@ export default function Navbar() {
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav me-auto">
           <li className="nav-item"><Link className="nav-link" to="/productos">Productos</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/categorias">Categorías</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/contacto">Contacto</Link></li>
           {user?.role === 'admin' && (
             <li className="nav-item"><Link className="nav-link" to="/admin">Admin</Link></li>
@@ -21,14 +22,19 @@ export default function Navbar() {
       </div>
 
       <div className="d-flex align-items-center gap-3">
-        <span className="badge bg-primary">🛒 {getCartCount()}</span>
+        <Link to="/carrito" className="badge bg-primary text-decoration-none" style={{ fontSize: '1rem', padding: '0.5rem 0.75rem' }}>
+          🛒 {getCartCount()}
+        </Link>
         {user ? (
           <>
-            <span className="text-light small">Hola, {user.role}</span>
+            <span className="text-light small">Hola, {user.nombre || user.role}</span>
             <button className="btn btn-outline-light btn-sm" onClick={logout}>Salir</button>
           </>
         ) : (
-          <Link to="/login" className="btn btn-light btn-sm">Login</Link>
+          <>
+            <Link to="/registro" className="btn btn-outline-light btn-sm me-2">Registrarse</Link>
+            <Link to="/login" className="btn btn-light btn-sm">Login</Link>
+          </>
         )}
       </div>
     </nav>

@@ -22,3 +22,22 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Archivos de entrega separada
+clear-storage.html
+*.zip
+*.rar
+*.7z
+
+# Archivos temporales de desarrollo
+*.tmp
+*.temp
+.cache/
+
+# Archivos de testing
+coverage/
+.nyc_output/
+
+# Archivos de build
+build/
+out/
